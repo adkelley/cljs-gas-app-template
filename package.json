@@ -1,0 +1,33 @@
+{
+  "name": "cljs-gas-app-template",
+  "author": "Alex Kelley",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adkelley/cljs-gas-app-template"
+  },
+  "description": "Easy creation of Clojurescript applications using Google Apps Script",
+  "version": "1.0.0",
+  "keywords": [
+    "google-apps-script",
+    "google",
+    "apps",
+    "script",
+    "clojurescript",
+    "cljs",
+    "clojure"
+  ],
+  "scripts": {
+    "clean": "rimraf export/Code.gs node_modules target target2 .cljs_node_repl .cpcache",
+    "dev": "clojure -M -m cljs.main -co dev.edn -c",
+    "build": "clojure -M -m cljs.main -co build.edn -c",
+    "push": "clasp push && date",
+    "prod": "npm run build && npm run push",
+    "create": "clasp create --title \"cljs-gas-app\" --type sheets --rootDir ./export"
+  },
+  "devDependencies": {
+    "clasp": "^1.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {}
+}

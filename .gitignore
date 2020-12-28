@@ -1,0 +1,10 @@
+/target/
+/.cpcache/
+/.clj-kondo/
+/node_modules/
+/export/
+/main.js
+/.clasp.json
+/.rebel.readline_history
+/.cljs_node_repl/
+/.nrepl-port
