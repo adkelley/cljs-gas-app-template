@@ -13148,6 +13148,84 @@ _Sites.PageType.prototype.FILE_CABINET_PAGE;
 
 
 /**
+ * _Slides Services
+ */
+var _Slides = {};
+
+/**
+ * Class SlidesApp
+ * Last updated December 17, 2020.
+ * @constructor
+ */
+_Slides.SlidesApp = function() {};
+
+
+/**
+ * @param {string} name
+ * @return {_Slides.Presentation}
+ */
+_Slides.SlidesApp.prototype.create = function(name) {};
+
+/**
+ * @return {_Base.Ui}
+ */
+_Slides.SlidesApp.prototype.getUi = function() {};
+
+/**
+ * @return {_Slides.Presentation}
+ */
+_Slides.SlidesApp.prototype.getActivePresentation = function() {};
+
+
+/**
+ * Class Presentation
+ * Last updated December 17, 2020
+ * @constructor
+ */
+_Slides.Presentation = function() {};
+
+/**
+ * @return {_Slides.Presentation}
+ */
+_Slides.Presentation.prototype.appendSlide = function () {};
+
+/**
+ * @return {Array.<_Slides.Slide>}
+ */
+_Slides.Presentation.prototype.getSlides = function() {};
+
+/**
+ * @return {string}
+ */
+_Slides.Presentation.prototype.getUrl = function () {};
+
+/**
+ * Class SheetsChart
+ * Last updated December 17, 2020
+ * @constructor
+ */
+_Slides.SheetChart = function() {};
+
+/**
+ * Class Slide
+ * Last updated December 17, 2020
+ * @constructor
+ */
+_Slides.Slide = function() {};
+
+/**
+ * @param {(_Sheets.EmbeddedChart|_Slides.SheetsChart)} chart
+ * @param {number=} left
+ * @param {number=} top
+ * @param {number=} width
+ * @param {number=} height
+ * @return {_Slides.SheetsChart}
+ */
+_Slides.Slide.prototype.insertSheetsChart = function(chart, left, top, width, height) {};
+
+_Slides.Slide.prototype.remove = function() {};
+
+/**
  * _Spreadsheet Services
  */
 var _Spreadsheet = {};
@@ -13195,6 +13273,11 @@ _Spreadsheet.SpreadsheetApp.prototype.getActiveSheet = function() {};
  * @return {_Spreadsheet.Spreadsheet}
  */
 _Spreadsheet.SpreadsheetApp.prototype.getActiveSpreadsheet = function() {};
+
+/**
+ * @return {_Base.Ui}
+ */
+_Spreadsheet.SpreadsheetApp.prototype.getUi = function() {};
 
 /**
  * @return {_Spreadsheet.DataValidationBuilder}
@@ -14343,6 +14426,12 @@ _Spreadsheet.EmbeddedLineChartBuilder.prototype.setLegendPosition = function(pos
  * @return {_Spreadsheet.EmbeddedLineChartBuilder}
  */
 _Spreadsheet.EmbeddedLineChartBuilder.prototype.setLegendTextStyle = function(textStyle) {};
+
+/**
+ * @param {number} headers
+ * @return {_Spreadsheet.EmbeddedChartBuilder}
+ */
+_Spreadsheet.EmbeddedLineChartBuilder.prototype.setNumHeaders = function(headers) {};
 
 /**
  * @param {string} option
@@ -16877,7 +16966,7 @@ _Base.PromptResponse.prototype.getSelectedButton = function() {};
 
 /**
  * Class Ui
- * Last updated August 7, 2013.
+ * Last updated December 17, 2020.
  * @constructor
  */
 _Base.Ui = function() {};
@@ -16913,6 +17002,12 @@ _Base.Ui.prototype.createMenu = function(caption) {};
  * @return {_Base.PromptResponse}
  */
 _Base.Ui.prototype.prompt = function(arg1, arg2, buttons) {};
+
+/**
+ * @param {Object} userInterface
+ * @param {string} title
+ */
+_Base.Ui.prototype.showModalDialog = function(userInterface, title) {};
 
 /**
  * @param {Object} userInterface
@@ -19327,116 +19422,70 @@ var MailApp;
 
 /**
  * _Properties Services
+ * Last updated January 04, 2021
  */
+var _PropertiesService = {};
+
+/**
+  * _Properties
+  */
 var _Properties = {};
 
 /**
- * Class ScriptProperties
- * Last updated June 27, 2013.
- * @constructor
+ * @return {_Properties}
  */
-_Properties.ScriptProperties = function() {};
+_PropertiesService.prototype.getDocumentProperties = function() {};
 
 /**
- * @return {_Properties.ScriptProperties}
+ * @return {_Properties}
  */
-_Properties.ScriptProperties.prototype.deleteAllProperties = function() {};
+_PropertiesService.prototype.getUserProperties = function() {};
+
+/**
+  * @return {_Properties}
+  */
+_PropertiesService.prototype.getScriptProperties = function() {};
+
+/**
+ * @return {_Properties}
+ */
+_Properties.prototype.deleteAllProperties = function() {};
 
 /**
  * @param {string} key
- * @return {_Properties.ScriptProperties}
+ * @return {_Properties}
  */
-_Properties.ScriptProperties.prototype.deleteProperty = function(key) {};
+_Properties.prototype.deleteProperty = function(key) {};
 
 /**
  * @return {Array.<string>}
  */
-_Properties.ScriptProperties.prototype.getKeys = function() {};
+_Properties.prototype.getKeys = function() {};
 
 /**
  * @return {Object}
  */
-_Properties.ScriptProperties.prototype.getProperties = function() {};
+_Properties.prototype.getProperties = function() {};
 
 /**
  * @param {string} key
  * @return {string}
  */
-_Properties.ScriptProperties.prototype.getProperty = function(key) {};
+_Properties.prototype.getProperty = function(key) {};
 
 /**
  * @param {Object} properties
  * @param {boolean=} deleteAllOthers
- * @return {_Properties.ScriptProperties}
+ * @return {_Properties}
  */
-_Properties.ScriptProperties.prototype.setProperties = function(properties, deleteAllOthers) {};
+_Properties.prototype.setProperties = function(properties, deleteAllOthers) {};
 
 /**
  * @param {string} key
  * @param {string} value
- * @return {_Properties.ScriptProperties}
+ * @return {_Properties}
  */
-_Properties.ScriptProperties.prototype.setProperty = function(key, value) {};
-
-
-/**
- * @type {_Properties.ScriptProperties}
- */
-var ScriptProperties;
-
-/**
- * Class UserProperties
- * Last updated June 27, 2013.
- * @constructor
- */
-_Properties.UserProperties = function() {};
-
-/**
- * @return {_Properties.UserProperties}
- */
-_Properties.UserProperties.prototype.deleteAllProperties = function() {};
-
-/**
- * @param {string} key
- * @return {_Properties.UserProperties}
- */
-_Properties.UserProperties.prototype.deleteProperty = function(key) {};
-
-/**
- * @return {Array.<string>}
- */
-_Properties.UserProperties.prototype.getKeys = function() {};
-
-/**
- * @return {Object}
- */
-_Properties.UserProperties.prototype.getProperties = function() {};
-
-/**
- * @param {string} key
- * @return {string}
- */
-_Properties.UserProperties.prototype.getProperty = function(key) {};
-
-/**
- * @param {Object} properties
- * @param {boolean=} deleteAllOthers
- * @return {_Properties.UserProperties}
- */
-_Properties.UserProperties.prototype.setProperties = function(properties, deleteAllOthers) {};
-
-/**
- * @param {string} key
- * @param {string} value
- * @return {_Properties.UserProperties}
- */
-_Properties.UserProperties.prototype.setProperty = function(key, value) {};
-
-
-/**
- * @type {_Properties.UserProperties}
- */
-var UserProperties;
+_Properties.prototype.setProperty = function(key, value) {};
 
 
 /**
